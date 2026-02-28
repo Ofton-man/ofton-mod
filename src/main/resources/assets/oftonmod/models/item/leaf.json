@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "ofton_mod:item/leaf"
+    "layer0": "oftonmod:item/leaf"
   }
 }

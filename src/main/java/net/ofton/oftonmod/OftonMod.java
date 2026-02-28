@@ -12,17 +12,20 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.ofton.oftonmod.item.ModCreativeModeTabs;
 import net.ofton.oftonmod.item.ModItems;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(OftonMod.MOD_ID)
 public class OftonMod {
-    public static final String MOD_ID = "ofton_mod";
+    public static final String MOD_ID = "oftonmod";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public OftonMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
 
@@ -39,7 +42,7 @@ public class OftonMod {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.SAPPHIRE);
+            event.accept(ModItems.LEAF);
         }
     }
 
