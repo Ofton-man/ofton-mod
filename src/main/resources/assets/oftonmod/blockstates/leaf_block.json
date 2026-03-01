@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "oftonmod:block/leaf_block"
+    }
+  }
+}
