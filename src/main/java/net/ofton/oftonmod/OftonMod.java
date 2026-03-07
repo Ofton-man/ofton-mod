@@ -1,6 +1,7 @@
 package net.ofton.oftonmod;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -13,8 +14,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.ofton.oftonmod.block.ModBlocks;
+import net.ofton.oftonmod.block.entity.ModBlockEntities;
 import net.ofton.oftonmod.item.ModCreativeModeTabs;
 import net.ofton.oftonmod.item.ModItems;
+import net.ofton.oftonmod.screen.ModMenuTypes;
+import net.ofton.oftonmod.screen.PlateProcessingMachineScreen;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -30,6 +34,9 @@ public class OftonMod {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -60,6 +67,7 @@ public class OftonMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
+            MenuScreens.register(ModMenuTypes.PLATE_PROCESSING_MENU.get(), PlateProcessingMachineScreen::new);
         }
     }
 }

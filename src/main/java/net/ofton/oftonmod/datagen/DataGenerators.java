@@ -8,7 +8,6 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.ofton.oftonmod.OftonMod;
-import net.ofton.oftonmod.datagen.loot.ModBlockStateProvider;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -25,10 +24,10 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
 
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
-        generator.addProvider(event.includeClient(), new ModItemModeProvider(packOutput,existingFileHelper));
+        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput,existingFileHelper));
 
-        ModBlockTagGenerator blockTagGenerator = generator .addProvider(event.includeServer(),
+        ModBlockTagGenerator blockTagGenerator = generator.addProvider(event.includeServer(),
                new ModBlockTagGenerator(packOutput, lookupProvider, existingFileHelper));
-        generator.addProvider(event.includeServer(), new ModItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(),existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
     }
 }

@@ -3,5 +3,7 @@
 
   "block.oftonmod.leaf_block": "Block of Knife Leaf ",
 
-  "creativetab.ofton_tab": "Ofton Mod Tab"
+  "creativetab.ofton_tab": "Ofton Mod",
+
+  "block.oftonmod.plate_processing_machine": "Plate Processing Machine"
 }

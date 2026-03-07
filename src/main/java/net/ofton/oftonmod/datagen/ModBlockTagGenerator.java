@@ -8,7 +8,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.ofton.oftonmod.OftonMod;
 import net.ofton.oftonmod.block.ModBlocks;
 import org.jetbrains.annotations.Nullable;
-import org.openjdk.nashorn.internal.ir.Block;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -20,10 +19,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.LEAF_BLOCK.get());
+                .add(ModBlocks.LEAF_BLOCK.get())
+                .add(ModBlocks.PLATE_PROCESSING_MACHINE.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.LEAF_BLOCK.get());
+                .add(ModBlocks.LEAF_BLOCK.get())
+                .add(ModBlocks.PLATE_PROCESSING_MACHINE.get());
 
 
     }

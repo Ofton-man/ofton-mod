@@ -12,6 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.ofton.oftonmod.OftonMod;
+import net.ofton.oftonmod.block.machine.PlateProcessingMachineBlock;
 import net.ofton.oftonmod.item.ModItems;
 
 
@@ -25,7 +26,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.CROP)));
 
     public static final RegistryObject<Block> PLATE_PROCESSING_MACHINE = registerBlock("plate_processing_machine",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+            () -> new PlateProcessingMachineBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
